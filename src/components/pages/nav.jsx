@@ -1,3 +1,4 @@
+import { Utensils } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,12 +11,25 @@ function Nav() {
   ];
 
   return (
-    <div>
-      {navigationScreens.map((item, index) => (
-        <a key={item.id} href={item.path}>
-          {item.name}
-        </a>
-      ))}
+    <div className="bg-black flex justify-between text-white w-full px-10 p-3">
+      <div className="flex gap-4">
+        <Utensils color="red" size={20} />
+        <p>TastyBites</p>
+      </div>
+      <div className="flex gap-4 ">
+        {navigationScreens.map((item, index) => (
+          <a
+            className="hover:text-orange-400  hover:border-b-2 hover:border-amber-500"
+            key={item.id}
+            href={item.path}
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+      <button className="bg-orange-500 text-white rounded-4xl active:bg-amber-300 p-1 text-sm">
+        Book Table
+      </button>
     </div>
     // <nav>
     //   <Link to={"/"}> Home</Link>
