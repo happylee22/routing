@@ -6,7 +6,7 @@ function Home() {
   console.log(active);
 
   return (
-    <div>
+    <div className="display flex flex-col">
       <h3 className="text-center font-bold text-2xl">Our Menu</h3>
       <div className="flex gap-4 items-center justify-center">
         {categories.map((item, index) => (
@@ -20,22 +20,18 @@ function Home() {
         ))}
       </div>
       {/* second rendering list */}
-      <div className="w-4/5 grid grid-cols-4 gap-3 mx-auto mt-4  ">
+      <div className="grid grid-cols-4 gap-2 mx-6 my-6">
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className="shadow shadow-gray-400 rounded-3xl h-min "
+            className="  h-60 shadow-md shadow-gray-400 rounded overflow-hidden"
           >
-            <img
-              className="w-full h-30 rounded-t-3xl"
-              src={item.image}
-              alt={item.name}
-            />
-            <div className="p-4">
+            <img className="w-full h-30 " src={item.image} alt={item.name} />
+            <div className="p-4 text-sm flex justify-between">
               <h4> {item.name}</h4>
-              <p>{item.price}</p>
+              <p>{`$${item.price}`}</p>
             </div>
-            <p className="p-4">{item.description}</p>
+            <p className="text-sm p-2">{item.description}</p>
           </div>
         ))}
       </div>
