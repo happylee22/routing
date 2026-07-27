@@ -4,6 +4,10 @@ import { categories, menuItems } from "../card/data";
 function Home() {
   const [active, setActive] = useState(categories[0]);
   console.log(active);
+  const filteredItem =
+    active === categories[0]
+      ? menuItems
+      : menuItems.filter((item, index) => item.category === active);
 
   return (
     <div className="display flex flex-col">
@@ -21,15 +25,17 @@ function Home() {
       </div>
       {/* second rendering list */}
       <div className="grid grid-cols-4 gap-2 mx-6 my-6">
-        {menuItems.map((item) => (
+        {filteredItem.map((item) => (
           <div
             key={item.id}
-            className="  h-60 shadow-md shadow-gray-400 rounded overflow-hidden"
+            className=" h-60 shadow-md shadow-gray-400 rounded overflow-hidden"
           >
             <img className="w-full h-30 " src={item.image} alt={item.name} />
             <div className="p-4 text-sm flex justify-between">
               <h4> {item.name}</h4>
-              <p>{`$${item.price}`}</p>
+              <p
+                className={`${item.price < 5 ? "text-red-500" : item.price > 7 ? "text-green-500" : "text-black"}`}
+              >{`$${item.price}`}</p>
             </div>
             <p className="text-sm p-2">{item.description}</p>
           </div>
