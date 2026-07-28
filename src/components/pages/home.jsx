@@ -25,15 +25,15 @@ function Home() {
       </div>
       {/* second rendering list */}
       <div
-        className={`${filteredItem.length > 2 ? "grid grid-cols-4 gap-2 mx-6 my-6" : "grid grid-cols-2 gap-2 mx-6 my-6"}`}
+        className={`${filteredItem.length > 2 ? "grid grid-cols-4 gap-2 mx-6 my-6" : filteredItem.length === 2 ? "grid grid-cols-2 gap-2 mx-6 my-6" : "ml-auto mr-auto mt-4"}`}
       >
         {filteredItem.map((item) => (
           <div
             key={item.id}
-            className={`${filteredItem.length > 2 ? " h-60 shadow-md shadow-gray-400 rounded overflow-hidden" : " h-80 shadow-md shadow-gray-400 rounded overflow-hidden"}`}
+            className={`${filteredItem.length > 2 ? " h-60 shadow-md shadow-gray-400 rounded overflow-hidden" : filteredItem.length === 2 ? " h-80 shadow-md shadow-gray-400 rounded overflow-hidden" : "h-80 shadow-md shadow-gray-400 rounded w-full"}`}
           >
             <img
-              className={`${filteredItem.length > 2 ? "w-full h-30 " : "w-full h-50 object-fit"}`}
+              className={`${filteredItem.length > 2 ? "w-full h-30 " : filteredItem.length == 2 ? "w-full h-50 object-fit" : "w-full h-50 object-fit"}`}
               src={item.image}
               alt={item.name}
             />
