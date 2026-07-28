@@ -24,13 +24,19 @@ function Home() {
         ))}
       </div>
       {/* second rendering list */}
-      <div className="grid grid-cols-4 gap-2 mx-6 my-6">
+      <div
+        className={`${filteredItem.length > 2 ? "grid grid-cols-4 gap-2 mx-6 my-6" : "grid grid-cols-2 gap-2 mx-6 my-6"}`}
+      >
         {filteredItem.map((item) => (
           <div
             key={item.id}
-            className=" h-60 shadow-md shadow-gray-400 rounded overflow-hidden"
+            className={`${filteredItem.length > 2 ? " h-60 shadow-md shadow-gray-400 rounded overflow-hidden" : " h-80 shadow-md shadow-gray-400 rounded overflow-hidden"}`}
           >
-            <img className="w-full h-30 " src={item.image} alt={item.name} />
+            <img
+              className={`${filteredItem.length > 2 ? "w-full h-30 " : "w-full h-50 object-fit"}`}
+              src={item.image}
+              alt={item.name}
+            />
             <div className="p-4 text-sm flex justify-between">
               <h4> {item.name}</h4>
               <p

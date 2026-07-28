@@ -5,6 +5,7 @@ import Aboutus from "./components/pages/aboutus";
 import Nav from "./components/pages/nav";
 import Menu from "./components/pages/Menu";
 import Contact from "./components/pages/contact";
+import ProductCatalogueDemo from "../../ProductCatalogueDemo";
 
 function App() {
   return (
